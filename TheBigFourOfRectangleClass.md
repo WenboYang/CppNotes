@@ -31,4 +31,4 @@ public:
 };
 ~~~~
 
-** Mind set: write your C++ program as a library builder **, so think your program will run on server millions of times, your class can be inherited, or be used to compose much larger classes.
+**Mind set: write your C++ program as a library builder**, so think your program will run on server millions of times, your class can be inherited, or be used to compose much larger classes.
