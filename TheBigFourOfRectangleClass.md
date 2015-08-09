@@ -1,8 +1,8 @@
-## Write the "big four" for Rectangle class:
-   constructor
-   copy constructor
-   copy assignment
-   destructor
+#The Task: write the "big four" for Rectangle class:
+* constructor
+* copy constructor
+* copy assignment
+* destructor
    
 
 ~~~~C++
