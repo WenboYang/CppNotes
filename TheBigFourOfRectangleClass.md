@@ -145,39 +145,40 @@ Luckliy, the compiler I am using will give this kind of warning when we open the
 ###Copy assignment
 Similarly, always prefer the assigment operator of parent and component classes:
 ~~~~C++
-   Rectangle& operator=(const Rectangle &other )
+Rectangle& operator=(const Rectangle &other )
+{
+   if ( this == &other )
    {
-      if ( this == &other )
-      {
-         return *this;
-      }
-
-      this->Shape::operator=(other);
-      this->width = other.width;
-      this->height = other.height;
-
-      if( other.leftUp != NULL )
-      {
-         if( this->leftUp != NULL )
-         {
-            (*leftUp ) = *(other.leftUp);
-         }
-         else
-         {
-            leftUp = new Point(*other.leftUp);
-         }
-      }
-      else
-      {
-         delete this->leftUp;
-         this->leftUp = NULL;
-      }
-
       return *this;
    }
 
+   this->Shape::operator = (other);
+   this->width = other.width;
+   this->height = other.height;
+
+   if( other.leftUp != NULL )
+   {
+      if( this->leftUp != NULL )
+      {
+         (*leftUp ) = *(other.leftUp);
+      }
+      else
+      {
+         leftUp = new Point(*other.leftUp);
+      }
+   }
+   else
+   {
+      delete this->leftUp;
+      this->leftUp = NULL;
+   }
+
+   return *this;
+}
+
+
 ~~~~
          
-A great notes by my classmate:
+A wonderful note by my classmate:
 (http://www.jianshu.com/p/629c743b0fd3?utm_campaign=maleskine&utm_content=note&utm_medium=reader_share&utm_source=weixin&from=groupmessage&isappinstalled=0)
 
