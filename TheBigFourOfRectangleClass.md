@@ -136,6 +136,7 @@ And also, do you know the evaluation order of the initialization-list? Not by th
 
 ###Copy assignment
 Similarly, always prefer the assigment operator of parent and component classes:
+~~~~C++
 inline Rectangle &Rectangle::operator=(const Rectangle &other )
 {
    if ( this == &other )
@@ -166,6 +167,7 @@ inline Rectangle &Rectangle::operator=(const Rectangle &other )
    
    return *this;
 }
+~~~~
          
 A great notes by my classmate:
 (http://www.jianshu.com/p/629c743b0fd3?utm_campaign=maleskine&utm_content=note&utm_medium=reader_share&utm_source=weixin&from=groupmessage&isappinstalled=0)
