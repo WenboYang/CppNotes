@@ -1,6 +1,6 @@
-##The "big four" for Rectangle class.
+##Class Note: The "big four" for Rectangle class.
 
- This is what I learned from Jiangzhong and my classmates, the task is to write "big four": constructor, copy constructor, copy assignment and destructor.
+The task is to write "big four": constructor, copy constructor, copy assignment and destructor.
    
 ~~~~C++
 class Shape
