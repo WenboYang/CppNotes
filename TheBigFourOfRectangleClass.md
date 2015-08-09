@@ -124,7 +124,7 @@ And also, what is the evaluation order of the initialization-list? Not by the or
 
 ![init order](https://github.com/WenboYang/CppNotes/blob/master/initOrder.png)
 
-Luckliy, the compiler I am using will below warning when the -Wall option is enabled, this's cool:
+Luckliy, when the evaluation order is not the same as I write down them, the compiler I am using will give me below warning when the -Wall option is enabled, this is cool:
 >bo@bo-buntu:~/ws/CppNotes$ g++ -Wall RecTangle.cpp -o RecTangle
 
 >RecTangle.cpp: 在复制构造函数‘Rectangle::Rectangle(const Rectangle&)’:
