@@ -34,7 +34,7 @@ public:
 **Mind set: a good C++ programer should always think as a library builder**. Design your class and write your code as if they will run on server many many times, as they will be inherited, or be re-used as a component of many many other classes maintained by many different people.
 
 
-###Problem of the constructor
+###Constructor
 
 What is the problem of this constructor? 
 ~~~~C++
@@ -61,3 +61,34 @@ inline Rectangle::Rectangle( const int width, const int height, const int x, con
    this->leftUp = new Point( x, y );
 }
 ~~~~
+
+
+###Destructor
+Is this destructor OKAY?
+~~~~C++
+inline Rectangle::~Rectangle()
+{
+   delete leftUp;
+}
+~~~~
+
+Again, this will work, but it won't hurt to do this, what's the benefit?
+~~~~C++
+inline Rectangle::~Rectangle()
+{
+   delete leftUp;
+   leftUp = NULL;
+}
+~~~~
+By doing this, when another guy(or myself in another day) does stupide things like this, he will instantly find out this wont' work and fix this floating pointer:
+~~~~C++
+Foo()
+{
+   Rectangle square();
+   pSquare=&square;
+   return pSquare;
+
+}
+~~~~
+
+
