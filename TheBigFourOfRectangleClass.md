@@ -35,6 +35,8 @@ public:
 
 
 ###Problem of the constructor
+
+What is the problem of this constructor? 
 ~~~~C++
 inline Rectangle::Rectangle( const int width, const int height, const int x, const int y )
 {
