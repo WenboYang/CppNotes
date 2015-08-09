@@ -2,7 +2,6 @@
 
 A brief note for the C++ offline class this weekend, mainly based on Jianzhong's teaching:
 
-A more detailed note for this class:
 
 * constructor
 * copy constructor
@@ -131,12 +130,43 @@ class Point
 ~~~~~
 The answer is nothing. Of course the owner of Shape and Point have the responsibility to properly implement their constructors. This is cool because the ownership and responsiblity is more clear.
 
-And also, what the order of initilaziion order of the weight, height and parent class Shape in the int list? The answer is Shape first, then follow the order of declaration, quote C++ standard:
+And also, do you know the evaluation order of the initialization-list? Not by the order you write down in the constuctor's initliazation list! The answer is firstly the parent Shape, then follow the order of declaration, why they design this way?...read the standard: 
 
 ![init order](https://github.com/WenboYang/CppNotes/blob/master/initOrder.png)
 
-
-A side note, Jianzhong wrote this >=10 years ago. I incidently found this online:
-(http://www.cnblogs.com/k-eckel/archive/2005/07/08/188281.html)
-
+###Copy assignment
+Similarly, always prefer the assigment operator of parent and component classes:
+inline Rectangle &Rectangle::operator=(const Rectangle &other )
+{
+   if ( this == &other )
+   {
+      return *this;
+   }
+   
+   this->Shape::operator=(other);
+   this->width = other.width;
+   this->height = other.height;
+   
+   if( other.leftUp != NULL )
+   {
+      if( this->leftUp != NULL )
+      {
+         *leftUp = *other.leftUp;
+      }
+      else
+      {
+         leftUp = new Point(*other.leftUp);
+      }
+   }
+   else
+   {
+      delte this->leftUp;
+      this->leftUp = NULL;
+   }
+   
+   return *this;
+}
+         
+A great notes by my classmate:
+(http://www.jianshu.com/p/629c743b0fd3?utm_campaign=maleskine&utm_content=note&utm_medium=reader_share&utm_source=weixin&from=groupmessage&isappinstalled=0)
 
