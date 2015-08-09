@@ -1,4 +1,9 @@
-##Write the "big four" for Rectangle class:
+##Write the "big four" for Rectangle class.
+
+A brief note for the C++ offline class this weekend, mainly based on Jianzhong's teaching:
+
+A more detailed note for this class:
+
 * constructor
 * copy constructor
 * copy assignment
@@ -80,7 +85,7 @@ inline Rectangle::~Rectangle()
    leftUp = NULL;
 }
 ~~~~
-By doing this, when another guy(or myself in another day) does stupide things like this, he will instantly find out this wont' work and fix this floating pointer:
+By doing this, when another guy(or myself in another day) does stupid things like this, he will instantly find out this wont' work and fix this dangling pointer:
 ~~~~C++
 Foo()
 {
@@ -90,5 +95,48 @@ Foo()
 
 }
 ~~~~
+
+###Copy constructor
+Principle is to let each class take care of its own internal states. We just stick to the interface, which is kind of a contract between different classes. Therefor, when buiilding our copy constructor, we prefer to use the constructor of member/parent classes, like this. 
+~~~~C++
+Rectangle( const Rectangle& other ):
+width(other.width),
+height(other.height),
+Shape(other)
+{
+   if ( other.leftUp != NULL )
+   {
+      this->leftUp = new Pointer( *other.leftUp );
+   }
+   else
+   {
+      this->leftUp = NULL;
+   }
+}
+~~~~
+Now if we want to add some members in Point class and also in parent class Shape, like this. What do we do for our copy constructor?
+~~~~C++
+class Shape
+{
+   int no;
+   Mass* pMass;
+};
+
+class Point
+{
+   int x;
+   int y;
+   time* ptime;
+};
+~~~~~
+The answer is nothing. Of course the owner of Shape and Point have the responsibility to properly implement their constructors. This is cool because the ownership and responsiblity is more clear.
+
+And also, what the order of initilaziion order of the weight, height and parent class Shape in the int list? The answer is Shape first, then follow the order of declaration, quote C++ standard:
+
+(initOrder.png)
+
+
+A side note, Jianzhong wrote this >=10 years ago. I incidently found this online:
+(http://www.cnblogs.com/k-eckel/archive/2005/07/08/188281.html)
 
 
