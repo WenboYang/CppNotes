@@ -1,13 +1,7 @@
-##Write the "big four" for Rectangle class.
+##The "big four" for Rectangle class.
 
-A brief note for the C++ offline class this weekend. This is what I learned from Jiangzhong and my classmates.
-
-* constructor
-* copy constructor
-* copy assignment
-* destructor
+ This is what I learned from Jiangzhong and my classmates, the task is to write "big four": constructor, copy constructor, copy assignment and destructor.
    
-
 ~~~~C++
 class Shape
 {
@@ -174,10 +168,10 @@ Rectangle& operator=(const Rectangle &other )
 
    return *this;
 }
-
-
 ~~~~
-         
+
 A wonderful note by my classmate:
 (http://www.jianshu.com/p/629c743b0fd3?utm_campaign=maleskine&utm_content=note&utm_medium=reader_share&utm_source=weixin&from=groupmessage&isappinstalled=0)
+
+         
 
