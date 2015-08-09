@@ -133,7 +133,7 @@ The answer is nothing. Of course the owner of Shape and Point have the responsib
 
 And also, what the order of initilaziion order of the weight, height and parent class Shape in the int list? The answer is Shape first, then follow the order of declaration, quote C++ standard:
 
-(initOrder.png)
+![init order](https://github.com/WenboYang/CppNotes/blob/master/initOrder.png)
 
 
 A side note, Jianzhong wrote this >=10 years ago. I incidently found this online:
