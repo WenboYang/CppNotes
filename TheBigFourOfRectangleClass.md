@@ -1,7 +1,6 @@
 ##Write the "big four" for Rectangle class.
 
-A brief note for the C++ offline class this weekend, mainly based on Jianzhong's teaching:
-
+A brief note for the C++ offline class this weekend. This is what I learned from Jiangzhong and my classmates.
 
 * constructor
 * copy constructor
@@ -131,7 +130,7 @@ And also, what is the evaluation order of the initialization-list? Not by the or
 
 ![init order](https://github.com/WenboYang/CppNotes/blob/master/initOrder.png)
 
-Luckliy, the compiler I am using will give this kind of warning when we open the -Wall option, this's cool:
+Luckliy, the compiler I am using will below warning when the -Wall option is enabled, this's cool:
 >bo@bo-buntu:~/ws/CppNotes$ g++ -Wall RecTangle.cpp -o RecTangle
 
 >RecTangle.cpp: 在复制构造函数‘Rectangle::Rectangle(const Rectangle&)’:
