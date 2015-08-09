@@ -85,7 +85,7 @@ Rectangle* Foo()
 
 
 ###Copy constructor
-Principle is to let each class take care of its own internal states and implementations. We just stick to the interface, which is kind of a contract between different classes. Therefor, when buiilding our copy constructor, we prefer to use the constructor of member/parent classes, like this. 
+Principle is to let each class take care of its own internal states and implementations. We just stick to the interface, which is kind of a contract between different classes. Therefore, when building the copy constructor, we prefer to use the constructor of member/parent classes, like this. 
 ~~~~C++
 Rectangle( const Rectangle& other )
 : Shape(other),
@@ -103,7 +103,7 @@ Rectangle( const Rectangle& other )
 }
 
 ~~~~
-Now if we want to add some members in Point class and also in parent class Shape, like this. What do we do for the Rectangle class's copy constructor?
+Now if we want to add some members in Point class and also in parent class Shape, like below. What do we do for the Rectangle class's copy constructor then?
 ~~~~C++
 class Shape
 {
@@ -120,7 +120,7 @@ class Point
 ~~~~~
 The answer is nothing. Of course the owner of Shape and Point have the responsibility to properly implement their constructors. This is cool because the ownership and responsiblity is clearer.
 
-And also, what is the evaluation order of the initialization-list? Not by the order of how you write down them in the constuctor's initliazation list. The answer is firstly the parent Shape, then follow the order of declaration, why it's designed like this?...read the standard: 
+And also, what is the evaluation order of the initialization-list? Not by the order of how you write down them in the constuctor's initliazation list. The answer is firstly the parent Shape, then for the member variables, it will follow the order of declaration, why it's designed like this? read the standard: 
 
 ![init order](https://github.com/WenboYang/CppNotes/blob/master/initOrder.png)
 
