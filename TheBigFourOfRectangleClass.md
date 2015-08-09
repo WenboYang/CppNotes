@@ -1,4 +1,4 @@
-#The Task: write the "big four" for Rectangle class:
+##Write the "big four" for Rectangle class:
 * constructor
 * copy constructor
 * copy assignment
@@ -34,8 +34,7 @@ public:
 **Mind set: a good C++ programer should always think as a library builder**, think your program will run on server many many times, your class will be inherited, or be used as a component of other classes by many many different people.
 
 
-
-What's the problem of this constructor?
+###Problem of the constructor
 ~~~~C++
 inline Rectangle::Rectangle( const int width, const int height, const int x, const int y )
 {
