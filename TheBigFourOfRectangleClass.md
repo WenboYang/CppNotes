@@ -73,7 +73,7 @@ inline Rectangle::~Rectangle()
    leftUp = NULL;
 }
 ~~~~
-By doing this, when another guy(or myself in another day) does stupid things like blow, he will find out this don't work very soon, then he will have to fix this dangling pointer before it damages something:
+By doing this, when another guy(or myself in another day) does stupid things like blow, he will find out this doesn't work very soon, then he will have to fix this dangling pointer before it damages something:
 ~~~~C++
 Rectangle* Foo()
 {
