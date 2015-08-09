@@ -31,7 +31,7 @@ public:
 };
 ~~~~
 
-**Mind set: a good C++ programer should always think as a library builder**. So alwasy design your class and write your code as they will run on server many many times, as they will be inherited, or be re-used as a component of other many many classes maintained by many different people.
+**Mind set: a good C++ programer should always think as a library builder**. Design your class and write your code as if they will run on server many many times, as they will be inherited, or be re-used as a component of many many other classes maintained by many different people.
 
 
 ###Problem of the constructor
