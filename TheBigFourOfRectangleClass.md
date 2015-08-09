@@ -80,7 +80,7 @@ inline Rectangle::~Rectangle()
    leftUp = NULL;
 }
 ~~~~
-By doing this, when another guy(or myself in another day) does stupid things like this, he will find out this wont' work very soon and he will have to fix this dangling pointer before it damages something:
+By doing this, when another guy(or myself in another day) does stupid things like blow, he will find out this don't work very soon, then he will have to fix this dangling pointer before it damages something:
 ~~~~C++
 Rectangle* Foo()
 {
@@ -89,6 +89,7 @@ Rectangle* Foo()
    return pSquare;
 }
 ~~~~
+
 
 ###Copy constructor
 Principle is to let each class take care of its own internal states and implementations. We just stick to the interface, which is kind of a contract between different classes. Therefor, when buiilding our copy constructor, we prefer to use the constructor of member/parent classes, like this. 
@@ -130,7 +131,7 @@ And also, what is the evaluation order of the initialization-list? Not by the or
 
 ![init order](https://github.com/WenboYang/CppNotes/blob/master/initOrder.png)
 
-Luckliy, the compiler I am using will give this kind of warning when we open the -Wall option, this is cool:
+Luckliy, the compiler I am using will give this kind of warning when we open the -Wall option, this's cool:
 >bo@bo-buntu:~/ws/CppNotes$ g++ -Wall RecTangle.cpp -o RecTangle
 
 >RecTangle.cpp: 在复制构造函数‘Rectangle::Rectangle(const Rectangle&)’:
@@ -144,36 +145,37 @@ Luckliy, the compiler I am using will give this kind of warning when we open the
 ###Copy assignment
 Similarly, always prefer the assigment operator of parent and component classes:
 ~~~~C++
-inline Rectangle &Rectangle::operator=(const Rectangle &other )
-{
-   if ( this == &other )
+   Rectangle& operator=(const Rectangle &other )
    {
-      return *this;
-   }
-   
-   this->Shape::operator=(other);
-   this->width = other.width;
-   this->height = other.height;
-   
-   if( other.leftUp != NULL )
-   {
-      if( this->leftUp != NULL )
+      if ( this == &other )
       {
-         *leftUp = *other.leftUp;
+         return *this;
+      }
+
+      this->Shape::operator=(other);
+      this->width = other.width;
+      this->height = other.height;
+
+      if( other.leftUp != NULL )
+      {
+         if( this->leftUp != NULL )
+         {
+            (*leftUp ) = *(other.leftUp);
+         }
+         else
+         {
+            leftUp = new Point(*other.leftUp);
+         }
       }
       else
       {
-         leftUp = new Point(*other.leftUp);
+         delete this->leftUp;
+         this->leftUp = NULL;
       }
+
+      return *this;
    }
-   else
-   {
-      delte this->leftUp;
-      this->leftUp = NULL;
-   }
-   
-   return *this;
-}
+
 ~~~~
          
 A great notes by my classmate:
