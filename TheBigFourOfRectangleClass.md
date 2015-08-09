@@ -31,7 +31,7 @@ public:
 };
 ~~~~
 
-**Mind set: write your C++ program as a library builder**, so think your program will run on server millions of times, your class can be inherited, or be used to compose much larger classes.
+**Mind set: a good C++ programer should always think as a library builder**, think your program will run on server many many times, your class will be inherited, or be used as a component of other classes by many many different people.
 
 What's the problem of this constructor?
 ~~~~C++
@@ -48,7 +48,7 @@ inline Rectangle::Rectangle( const int width, const int height, const int x, con
 
 It might work. But its correctness now relies on the internal implemenation of class Point. It will break when somebody updates the Point class by adding a private member "z", which is calculated from x and y when a Point object is constructed.
    
-A better and shorter one:
+A better one:
 ~~~~C++
 inline Rectangle::Rectangle( const int width, const int height, const int x, const int y )
 {
