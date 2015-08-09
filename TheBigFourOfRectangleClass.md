@@ -44,9 +44,7 @@ What is the problem of this constructor?
 ~~~~C++
 inline Rectangle::Rectangle( const int width, const int height, const int x, const int y )
 {
-   this->width = ( width > 0 )? width : 0;
-   this->width = ( height > 0 )? height : 0;
-   
+   ... ...;
    this->leftUp = new Point();
    this->leftUp->x=x;
    this->leftUp->y=y;
@@ -59,9 +57,7 @@ A better one:
 ~~~~C++
 inline Rectangle::Rectangle( const int width, const int height, const int x, const int y )
 {
-   this->width = ( width > 0 )? width : 0;
-   this->width = ( height > 0 )? height : 0;
-   
+   ... ...;  
    this->leftUp = new Point( x, y );
 }
 ~~~~
@@ -84,36 +80,36 @@ inline Rectangle::~Rectangle()
    leftUp = NULL;
 }
 ~~~~
-By doing this, when another guy(or myself in another day) does stupid things like this, he will instantly find out this wont' work and fix this dangling pointer:
+By doing this, when another guy(or myself in another day) does stupid things like this, he will find out this wont' work very soon and he will have to fix this dangling pointer before it damages something:
 ~~~~C++
-Foo()
+Rectangle* Foo()
 {
-   Rectangle square();
-   pSquare=&square;
+   Rectangle square(1, 10, 10, 3, 10);
+   Rectangle* pSquare=&square;
    return pSquare;
-
 }
 ~~~~
 
 ###Copy constructor
-Principle is to let each class take care of its own internal states. We just stick to the interface, which is kind of a contract between different classes. Therefor, when buiilding our copy constructor, we prefer to use the constructor of member/parent classes, like this. 
+Principle is to let each class take care of its own internal states and implementations. We just stick to the interface, which is kind of a contract between different classes. Therefor, when buiilding our copy constructor, we prefer to use the constructor of member/parent classes, like this. 
 ~~~~C++
-Rectangle( const Rectangle& other ):
-width(other.width),
-height(other.height),
-Shape(other)
+Rectangle( const Rectangle& other )
+: Shape(other),
+  width(other.width),
+  height(other.height)
 {
    if ( other.leftUp != NULL )
    {
-      this->leftUp = new Pointer( *other.leftUp );
+      this->leftUp = new Point( *other.leftUp ); 
    }
    else
    {
       this->leftUp = NULL;
    }
 }
+
 ~~~~
-Now if we want to add some members in Point class and also in parent class Shape, like this. What do we do for our copy constructor?
+Now if we want to add some members in Point class and also in parent class Shape, like this. What do we do for the Rectangle class's copy constructor?
 ~~~~C++
 class Shape
 {
@@ -128,11 +124,22 @@ class Point
    time* ptime;
 };
 ~~~~~
-The answer is nothing. Of course the owner of Shape and Point have the responsibility to properly implement their constructors. This is cool because the ownership and responsiblity is more clear.
+The answer is nothing. Of course the owner of Shape and Point have the responsibility to properly implement their constructors. This is cool because the ownership and responsiblity is clearer.
 
-And also, do you know the evaluation order of the initialization-list? Not by the order you write down in the constuctor's initliazation list! The answer is firstly the parent Shape, then follow the order of declaration, why they design this way?...read the standard: 
+And also, what is the evaluation order of the initialization-list? Not by the order of how you write down them in the constuctor's initliazation list. The answer is firstly the parent Shape, then follow the order of declaration, why it's designed like this?...read the standard: 
 
 ![init order](https://github.com/WenboYang/CppNotes/blob/master/initOrder.png)
+
+Luckliy, the compiler I am using will give this kind of warning when we open the -Wall option, this is cool:
+>bo@bo-buntu:~/ws/CppNotes$ g++ -Wall RecTangle.cpp -o RecTangle
+
+>RecTangle.cpp: 在复制构造函数‘Rectangle::Rectangle(const Rectangle&)’:
+
+>RecTangle.cpp:31:8: 警告： ‘Rectangle::height’将在 [-Wreorder]
+
+>RecTangle.cpp:30:8: 警告：   ‘int Rectangle::width’ [-Wreorder]
+
+>RecTangle.cpp:78:1: 警告：   在此处初始化后被初始化 [-Wreorder]
 
 ###Copy assignment
 Similarly, always prefer the assigment operator of parent and component classes:
