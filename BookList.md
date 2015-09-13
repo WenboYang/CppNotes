@@ -5,6 +5,6 @@
 请注意书单是有顺序的：
 
 
-1. 入门: A Tour Of C++
-
-适合教学，平易近人。 是C++之父Bjarne Stroustrup在UTAustin从事教学时基于讲义写的。
+1. 入门
+  * A Tour Of C++
+    - 适合教学，平易近人。 是C++之父Bjarne Stroustrup在UTAustin从事教学时基于讲义写的。
