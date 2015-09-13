@@ -25,7 +25,7 @@ C++两大paradigm, OOP提高复用性；generic programming是C++社区意料之
   * [Generic Programming and the STL](http://www.amazon.cn/深度探索C-对象模型-斯坦利•B-李普曼/dp/B006QXQXTM)
     - 泛型方面宗师级作品，前几章是核心精神。iterator + algorithm + container；
 
-  * [C++标准库:自学教程与参考手册](STLhttp://www.amazon.cn/C-标准库-尼古拉·约祖蒂斯/dp/B00YLZIRHI/)
+  * [C++标准库:自学教程与参考手册](http://www.amazon.cn/C-标准库-尼古拉·约祖蒂斯/dp/B00YLZIRHI/)
     - 不错的参考;
 
   * [STL standard](https://www.sgi.com/tech/stl/)
