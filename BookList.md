@@ -16,7 +16,7 @@ C++书单
 
 ##核心
 
-C++两大paradigm, OOP提高复用性；generic programming是C++社区意料之外的惊喜，编译时多态，对性能的追求和优化。
+C++两大paradigm, OOP提高复用性；使用generic programming的STL是C++社区意料之外的惊喜，编译时多态，对性能的追求和优化。
 
   * [深度探索C++面向对象模型](http://www.amazon.cn/深度探索C-对象模型-斯坦利•B-李普曼/dp/B006QXQXTM)
     - 必读，内存层面的剖析是特点，不适合入门。其它书绕了半天讲不清楚的东西，这本书以较小的篇幅讲清楚；
