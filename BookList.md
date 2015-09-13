@@ -36,7 +36,7 @@ C++两大paradigm, OOP提高复用性；generic programming是C++社区意料之
      - 必读， 学完GeekBand课程后读正好。作者Scott Meyers文笔好, 开了effective系列技术书籍的风气；
 
    * [Effective STL](http://www.amazon.cn/中文版Effective-STL-50条有效使用STL的经验-Scott-Meyers/dp/B00LL0M4JI)
-     - 如何用好STL 
+     - 如何用好STL; 
 
    * [C++ Coding Standards: 101 Rules, Guidelines, and Best Practices](http://www.amazon.cn/C-Coding-Standards-101-Rules-Guidelines-and-Best-Practices-Sutter-Herb/dp/0321113586)
      - 两位作者，Herb是标准委员会现主席，牵头组织了[CppCon](https://isocpp.orgi)。 Andrei明日之星；
