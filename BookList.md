@@ -7,6 +7,6 @@
 
 1. 入门
   * [A Tour Of C++](http://www.amazon.com/Tour-C-Depth-ebook/dp/B00F8CWGOS)
-    - 适合教学，平易近人。 是C++之父Bjarne Stroustrup在UTAustin时基于讲义写的。
-    - http://www.amazon.com/Tour-C-Depth-ebook/dp/B00F8CWGOS
+    - 适合教学，平易近人;
+    - C++之父Bjarne Stroustrup在UTAustin时基于讲义写的。
   * Essential C++
