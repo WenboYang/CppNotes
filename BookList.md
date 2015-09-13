@@ -39,17 +39,17 @@ C++两大paradigm, OOP提高复用性；generic programming是C++社区意料之
      - 如何用好STL 
 
    * [C++ Coding Standards: 101 Rules, Guidelines, and Best Practices](http://www.amazon.cn/C-Coding-Standards-101-Rules-Guidelines-and-Best-Practices-Sutter-Herb/dp/0321113586)
-     －Herb是标准委员会现主席，牵头组织了[CppCon](https://isocpp.orgi), Andrei明日之星。
+     - 两位作者，Herb是标准委员会现主席，牵头组织了[CppCon](https://isocpp.orgi)。 Andrei明日之星；
 
    * [Modern C++ Design]( http://www.amazon.com/Modern-Design-Programming-Patterns-Depth-ebook/dp/B00AU3JUHG)
-     - Andrei炫技之作。
+     - Andrei炫技之作；
 
    * [Effective Modern C++](http://www.amazon.com/Effective-Modern-Specific-Ways-Improve/dp/1491903996)
-     -C++11和C++14
+     - C++11和C++14;
 
 ##百科全书
 
-建议读完Effective系列再读，内容较为枯燥，挑战毅力。好处是全面。技术积累有技术积累了点也要有面才扎实。
+建议读完Effective系列再读，内容较为枯燥，挑战毅力。好处是全面。有了点再有面的积累才扎实。
 
    * [The C++ Programming Language](http://www.amazon.cn/C-Programming-Language-Stroustrup-Bjarne/dp/0321563840)
    * [C++ Primer](http://www.amazon.cn/C-Primer-李普曼/dp/B00CE43I04)
